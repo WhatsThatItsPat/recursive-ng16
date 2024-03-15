@@ -21,6 +21,10 @@ import { Router, RouterLink, Routes } from '@angular/router';
 })
 export class RecursiveComponent {
   public recursiveCount = inject(Router).url.match(/recursive/g)?.length || 0;
+
+  ngOnInit() {
+    console.log(`RecursiveComponent (${this.recursiveCount}) > ngOnInit`);
+  }
 }
 
 
@@ -32,5 +36,11 @@ export default [
   {
     path: 'recursive',
     loadChildren: () => import('./recursive.component'),
+    /**
+     * My infinitely recursive routing crashes the browser because it
+     * tries to preload infinite lazy routes. This tells the preload
+     * strategy not to load the next recursive level.
+     */
+    data: { preventPreload: true },
   }
 ] as Routes;
