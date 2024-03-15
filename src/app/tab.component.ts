@@ -1,14 +1,17 @@
 import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink, RouterOutlet, Routes } from '@angular/router';
+import { Router, RouterLink, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-tab',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink],
+  imports: [CommonModule, RouterLink],
   template: `
     <div class="header">{{tabName}}</div>
-    <div class="content">content</div>
+    <div class="content">
+      <p>This is the root of {{tabName}}.</p>
+      <button routerLink="recursive">recursive</button>
+    </div>
   `,
   host: { 'class': 'page' },
   styles: [``],
@@ -26,5 +29,9 @@ export default [
   {
     path: '',
     component: TabComponent,
+  },
+  {
+    path: 'recursive',
+    loadChildren: () => import('./recursive.component'),
   }
 ] as Routes;
