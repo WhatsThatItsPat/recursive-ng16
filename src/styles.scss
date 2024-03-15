@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  outline: 3px purple solid;
+  .header {
+    display: flex;
+    height: 40px;
+    outline: 3px green solid;
+    justify-content: center;
+    align-items: center;
+  }
+  .content {
+    outline: 3px yellow solid;
+    flex-grow: 1;
+  }
+}
