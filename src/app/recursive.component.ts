@@ -7,7 +7,10 @@ import { Router, RouterLink, Routes } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink],
   template: `
-    <div class="header">recursive {{recursiveCount}}</div>
+    <div class="header">
+      <button class="back" routerLink="../">< Back</button>
+      <div class="title">recursive {{recursiveCount}}</div>
+    </div>
     <div class="content">
       <p>This is recursive page {{recursiveCount | json}}.</p>
       <button routerLink="recursive">recursive {{recursiveCount + 1}}</button>

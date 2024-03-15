@@ -7,10 +7,12 @@ import { Router, RouterLink, Routes } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink],
   template: `
-    <div class="header">{{tabName}}</div>
+    <div class="header">
+      <div class="title">{{tabName}}</div>
+    </div>
     <div class="content">
       <p>This is the root of {{tabName}}.</p>
-      <button routerLink="recursive">recursive</button>
+      <button routerLink="recursive">recursive 1</button>
     </div>
   `,
   host: { 'class': 'page' },

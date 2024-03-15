@@ -11,6 +11,10 @@
     outline: 3px green solid;
     justify-content: center;
     align-items: center;
+    .back {
+      position: absolute;
+      left: 10px;
+    }
   }
   .content {
     padding: 20px;
